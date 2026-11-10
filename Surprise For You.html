@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Yusra</title>
+
+    <style>
+        /* Simple CSS styling */
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            padding: 16px;
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ffe0ed, #e8ddff);
+            color: #51405f;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 650px;
+            min-height: 430px;
+            padding: 30px;
+            text-align: center;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px #c9b7d8;
+        }
+
+        .page {
+            display: none;
+            padding: 35px 10px;
+        }
+
+        .active {
+            display: block;
+        }
+
+        h1 {
+            color: #d94f91;
+            font-size: 42px;
+        }
+
+        h2 {
+            color: #8054bd;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        button {
+            padding: 12px 25px;
+            margin: 12px 6px;
+            border: none;
+            border-radius: 25px;
+            background-color: #df65a0;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-appearance: none;
+            appearance: none;
+            touch-action: manipulation;
+        }
+
+        button:hover {
+            background-color: #b94c86;
+        }
+
+        .yes {
+            background-color: #36a879;
+        }
+
+        .no {
+            background-color: #888888;
+        }
+
+        .emoji {
+            font-size: 55px;
+            margin: 15px;
+        }
+
+        #confetti {
+            position: relative;
+            height: 170px;
+            width: 100%;
+            overflow: hidden;
+            margin: 12px auto;
+        }
+
+        .party-piece {
+            position: absolute;
+            top: -25px;
+            width: 9px;
+            height: 17px;
+            border-radius: 3px;
+            animation: fall 3.2s linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(210px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        .firework {
+            position: absolute;
+            font-size: 27px;
+            animation: pop 1s ease-out forwards;
+        }
+
+        @keyframes pop {
+            0% { transform: scale(0.2); opacity: 0; }
+            35% { transform: scale(1.5); opacity: 1; }
+            100% { transform: scale(0.8); opacity: 0; }
+        }
+
+        #noButton {
+            position: relative;
+        }
+
+        .footer {
+            color: #999;
+            font-size: 13px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 12px; }
+            .container { padding: 16px 12px; min-height: 0; }
+            .page { padding: 24px 6px; }
+            h1 { font-size: clamp(28px, 8vw, 36px); }
+            h2 { font-size: 22px; }
+            p { font-size: 16px; }
+            button { min-height: 46px; padding: 12px 22px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Page 1: Welcome -->
+        <div class="page active" id="page1">
+            <div class="emoji">🎁</div>
+            <h1>Happy Birthday<br>Yusra!</h1>
+            <p>A little surprise for you.</p>
+            <button data-page="2">Click to Start</button>
+        </div>
+
+        <!-- Page 2: Birthday celebration -->
+        <div class="page" id="page2">
+            <div class="emoji">🎂 🎉 🎊</div>
+            <h1>Let's Celebrate!</h1>
+            <div id="confetti"></div>
+            <p>Today is your special day. Enjoy every moment and keep smiling!</p>
+            <button data-page="3">Next</button>
+        </div>
+
+        <!-- Page 3: Birthday wish -->
+        <div class="page" id="page3">
+            <div class="emoji">💐</div>
+            <h2>A Special Birthday Wish</h2>
+            <p>
+                Happy Birthday, Yusra! I Wish Allah give you long and healthy life. May your life always be full of happiness,
+                 success and beautiful memories. May all yourdreams come true and may you always have reasons to smile.!
+
+            </p>
+            <button data-page="4">Next</button>
+        </div>
+
+        <!-- Page 4: Friendly message -->
+        <div class="page" id="page4">
+            <div class="emoji">🌸</div>
+            <h2>Stay Happy Always!</h2>
+            <p>
+                You are a wonderful cousin. Keep smiling,
+                keep shining and enjoy your day. Sending you lots of
+                good wishes and positive vibes!
+            </p>
+            <div class="emoji">💖 🌟 💖</div>
+            <button data-page="5">Next</button>
+        </div>
+
+        <!-- Page 5: Website question -->
+        <div class="page" id="page5">
+            <div class="emoji">🥳</div>
+            <h2>Do You Like My Birthday Website?</h2>
+            <p>I hope you enjoyed this little surprise!</p>
+            <button class="yes" data-page="6">Yes ❤️</button>
+            <button class="no" id="noButton">No 😜</button>
+        </div>
+
+        <!-- Page 6: Thank you -->
+        <div class="page" id="page6">
+            <div class="emoji">🎊 💖 🎊</div>
+            <h1>Thank You!</h1>
+            <h2>Happy Birthday Once Again, Yusra!</h2>
+            <p>Keep smiling and have an amazing year ahead!</p>
+            <button data-page="1">Start Again</button>
+        </div>
+
+        <div class="footer">A Little Surprise, Made Just for You! 💖✨</div>
+
+    </div>
+
+    <script>
+        // Works with touch and mouse input on modern Android and iPhone browsers.
+        function nextPage(pageNumber) {
+            var pages = document.querySelectorAll('.page');
+            var target = document.getElementById('page' + pageNumber);
+            if (!target) return;
+
+            pages.forEach(function (page) {
+                page.classList.remove('active');
+            });
+            target.classList.add('active');
+
+            if (Number(pageNumber) === 2) startCelebration();
+        }
+        window.nextPage = nextPage;
+
+        function startCelebration() {
+            var area = document.getElementById('confetti');
+            if (!area) return;
+            var colors = ['#ff4f91', '#8b5cf6', '#ffc83d', '#35bfa5', '#4da6ff'];
+            area.innerHTML = '';
+
+            for (var i = 0; i < 75; i++) {
+                var piece = document.createElement('span');
+                piece.className = 'party-piece';
+                piece.style.left = Math.random() * 100 + '%';
+                piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                piece.style.animationDelay = Math.random() * 1.5 + 's';
+                area.appendChild(piece);
+            }
+
+            var effects = ['🎉', '🎊', '✨', '🎆', '🥳'];
+            for (var j = 0; j < 14; j++) {
+                var firework = document.createElement('span');
+                firework.className = 'firework';
+                firework.textContent = effects[Math.floor(Math.random() * effects.length)];
+                firework.style.left = Math.random() * 90 + '%';
+                firework.style.top = Math.random() * 75 + '%';
+                firework.style.animationDelay = Math.random() * 1.2 + 's';
+                area.appendChild(firework);
+            }
+        }
+
+        function moveButton() {
+            var button = document.getElementById('noButton');
+            if (!button) return;
+            button.style.left = (Math.floor(Math.random() * 120) - 60) + 'px';
+            button.style.top = (Math.floor(Math.random() * 60) - 30) + 'px';
+        }
+
+        // Event delegation: one listener handles every page button, including touch taps.
+        document.addEventListener('click', function (event) {
+            var button = event.target.closest('button[data-page]');
+            if (button) nextPage(Number(button.getAttribute('data-page')));
+        });
+
+        // The playful No button moves on desktop hover; on phones it remains tappable.
+        document.addEventListener('mouseover', function (event) {
+            if (event.target && event.target.id === 'noButton') moveButton();
+        });
+    </script>
+
+</body>
+</html>
